@@ -6,12 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Go Web App</title>
+    <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
 
     <h1>Hello Index</h1>
-{{ range . }}
-<div>{{ . }}</div>
-{{ end }}
+
+    <form method="POST">
+        <textarea name="comment"></textarea>
+        <div>
+            <button type="submit">POST Comment</button>
+        </div>
+    </form>
+
+    {{ range . }}
+    <div>{{ . }}</div>
+    {{ end }}
 </body>
 </html>
