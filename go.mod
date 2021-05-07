@@ -1,4 +1,4 @@
-module github.com/stingoff
+module github.com/rustingoff
 
 go 1.16
 
