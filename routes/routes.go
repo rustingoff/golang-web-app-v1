@@ -14,11 +14,15 @@ func NewRouter() *mux.Router {
 	r.HandleFunc("/", middleware.AuthRequired(indexPostHandler)).Methods("POST")
 	r.HandleFunc("/login", loginGetHandler).Methods("GET")
 	r.HandleFunc("/login", loginPostHandler).Methods("POST")
+	r.HandleFunc("/logout", logoutGetHandler).Methods("GET")
 	r.HandleFunc("/register", registerGetHandler).Methods("GET")
 	r.HandleFunc("/register", registerPostHandler).Methods("POST")
 
 	fs := http.FileServer(http.Dir("./static/"))
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", fs))
+
+	r.HandleFunc("/{username}",
+		middleware.AuthRequired(userGetHandler)).Methods("GET")
 
 	return r
 }
