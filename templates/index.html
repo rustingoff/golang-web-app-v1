@@ -11,16 +11,22 @@
 <body>
 
     <h1>Hello Index</h1>
-
+<div>
     <form method="POST">
-        <textarea name="comment"></textarea>
+        <textarea name="update"></textarea>
         <div>
-            <button type="submit">POST Comment</button>
+            <button type="submit">POST Update</button>
         </div>
     </form>
 
     {{ range . }}
-    <div>{{ . }}</div>
+    <div>
+        <div>
+            <strong>{{ .GetUser.GetUsername }} wrote: </strong>
+        </div>
+        <div>{{ .GetBody }}</div>
+    </div>
     {{ end }}
+</div>
 </body>
 </html>
